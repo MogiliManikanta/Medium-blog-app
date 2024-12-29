@@ -1,5 +1,6 @@
 // import CreateBlogForm from "@/components/blog/CreateBlog";
-import CreateBlogForm from "@/app/components/blog/createBlog";
+// import CreateBlogForm from "@/app/components/blog/createBlog";
+import CreateBlogForm from "@/app/components/blog/CreateBlog";
 import { verifyAuth } from "@/lib/auth";
 import { cookies } from "next/headers";
 
