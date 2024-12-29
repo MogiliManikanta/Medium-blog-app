@@ -103,7 +103,7 @@ export async function createBlogPostAction(data) {
   }
 }
 
-/*export async function getBlogPostsAction() {
+export async function getBlogPostsAction() {
   const token = (await cookies()).get("token")?.value;
   const user = await verifyAuth(token);
 
@@ -165,7 +165,6 @@ export async function createBlogPostAction(data) {
     };
   }
 }
-*/
 // export async function getBlogPostByIdAction(id) {
 //   const token = (await cookies()).get("token")?.value;
 //   const user = await verifyAuth(token);
