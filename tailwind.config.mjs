@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+
+import { withUt } from "uploadthing/tw";
+
+export default withUt({
   darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -58,4 +61,12 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+  // Custom classes for the UploadButton states and other components
+  utButton: {
+    base: "py-2 px-2 rounded-lg transition-all duration-300", // Base button styles
+    hover: "hover:bg-black/90", // Hover state
+    uploading: "bg-accent text-white", // When uploading
+    ready: "bg-primary text-white", // When ready
+    readying: "bg-muted text-gray-500", // When preparing (readying)
+  },
+});
