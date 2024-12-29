@@ -165,48 +165,48 @@ export async function getBlogPostsAction() {
     };
   }
 }
-// export async function getBlogPostByIdAction(id) {
-//   const token = (await cookies()).get("token")?.value;
-//   const user = await verifyAuth(token);
+export async function getBlogPostByIdAction(id) {
+  const token = (await cookies()).get("token")?.value;
+  const user = await verifyAuth(token);
 
-//   if (!user) {
-//     return {
-//       error: "Unauth user",
-//       status: 401,
-//     };
-//   }
+  if (!user) {
+    return {
+      error: "Unauth user",
+      status: 401,
+    };
+  }
 
-//   try {
-//     const req = await request();
-//     const decision = await blogPostRules.protect(req, { requested: 5 });
-//     if (decision.isDenied()) {
-//       if (decision.reason.isRateLimit()) {
-//         return {
-//           error: "Rate limit excedeed! Please try after some time",
-//           statu: 429,
-//         };
-//       }
+  try {
+    const req = await request();
+    const decision = await blogPostRules.protect(req, { requested: 5 });
+    if (decision.isDenied()) {
+      if (decision.reason.isRateLimit()) {
+        return {
+          error: "Rate limit excedeed! Please try after some time",
+          statu: 429,
+        };
+      }
 
-//       if (decision.reason.isBot()) {
-//         return {
-//           error: "Bot activity detected",
-//         };
-//       }
-//       return {
-//         error: "Request denied",
-//         status: 403,
-//       };
-//     }
+      if (decision.reason.isBot()) {
+        return {
+          error: "Bot activity detected",
+        };
+      }
+      return {
+        error: "Request denied",
+        status: 403,
+      };
+    }
 
-//     await connectToDatabase();
-//     const post = await BlogPost.findOne({ _id: id }).populate("author", "name");
-//     return {
-//       success: true,
-//       post: JSON.stringify(post),
-//     };
-//   } catch (e) {
-//     return {
-//       error: "Failed to fetch the blog detail! Please try again",
-//     };
-//   }
-// }
+    await connectToDatabase();
+    const post = await BlogPost.findOne({ _id: id }).populate("author", "name");
+    return {
+      success: true,
+      post: JSON.stringify(post),
+    };
+  } catch (e) {
+    return {
+      error: "Failed to fetch the blog detail! Please try again",
+    };
+  }
+}

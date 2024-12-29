@@ -68,41 +68,41 @@ export const blogPostRules = arcjet({
   ],
 });
 
-// export const commentRules = arcjet({
-//   key: process.env.ARCJET_KEY,
-//   characteristics: ["ip.src"],
-//   rules: [
-//     detectBot({
-//       mode: "LIVE",
-//       allow: [],
-//     }),
-//     shield({ mode: "LIVE" }),
-//     tokenBucket({
-//       mode: "LIVE",
-//       refillRate: 20,
-//       interval: "1m",
-//       capacity: 2,
-//     }),
-//   ],
-// });
+export const commentRules = arcjet({
+  key: process.env.ARCJET_KEY,
+  characteristics: ["ip.src"],
+  rules: [
+    detectBot({
+      mode: "LIVE",
+      allow: [],
+    }),
+    shield({ mode: "LIVE" }),
+    tokenBucket({
+      mode: "LIVE",
+      refillRate: 20,
+      interval: "1m",
+      capacity: 2,
+    }),
+  ],
+});
 
-// export const searchRules = arcjet({
-//   key: process.env.ARCJET_KEY,
-//   characteristics: ["ip.src"],
-//   rules: [
-//     detectBot({
-//       mode: "LIVE",
-//       allow: [],
-//     }),
-//     shield({ mode: "LIVE" }),
-//     tokenBucket({
-//       mode: "LIVE",
-//       refillRate: 20,
-//       interval: "1m",
-//       capacity: 2,
-//     }),
-//   ],
-// });
+export const searchRules = arcjet({
+  key: process.env.ARCJET_KEY,
+  characteristics: ["ip.src"],
+  rules: [
+    detectBot({
+      mode: "LIVE",
+      allow: [],
+    }),
+    shield({ mode: "LIVE" }),
+    tokenBucket({
+      mode: "LIVE",
+      refillRate: 20,
+      interval: "1m",
+      capacity: 2,
+    }),
+  ],
+});
 
 // export const paymentRules = arcjet({
 //   key: process.env.ARCJET_KEY,
