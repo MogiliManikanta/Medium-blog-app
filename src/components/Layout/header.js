@@ -21,17 +21,17 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { searchPostsAction } from "@/actions/blogInteractions";
-// import {
-//   Sheet,
-//   SheetClose,
-//   SheetContent,
-//   SheetHeader,
-//   SheetTitle,
-// } from "@/compoents/ui/sheet";
+import { searchPostsAction } from "@/actions/blogInteractions";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-// import PaypalButton from "../payment/paypal";
-// import { prePaymentAction } from "@/actions/prePayment";
+import PaypalButton from "../payment/paypal";
+import { prePaymentAction } from "@/actions/prePayment";
 
 const searchSchema = z.object({
   query: z.string().min(1, "Query is required"),
@@ -175,7 +175,7 @@ export default function Header({ user }) {
           </div>
         </div>
       </div>
-      {/*<Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetContent
           side="right"
           className="w-full sm:w-[540px] sm:max-w-full"
@@ -233,8 +233,8 @@ export default function Header({ user }) {
             )}
           </div>
         </SheetContent>
-      </Sheet>*/}
-      {/*<Dialog
+      </Sheet>
+      <Dialog
         open={isPaymentDialog}
         onOpenChange={() => {
           setIsPaymentDialog(false);
@@ -261,7 +261,7 @@ export default function Header({ user }) {
             </div>
           )}
         </DialogContent>
-      </Dialog>*/}
+      </Dialog>
     </header>
   );
 }

@@ -104,24 +104,24 @@ export const searchRules = arcjet({
   ],
 });
 
-// export const paymentRules = arcjet({
-//   key: process.env.ARCJET_KEY,
-//   rules: [
-//     detectBot({
-//       mode: "LIVE",
-//       allow: [],
-//     }),
-//     shield({ mode: "LIVE" }),
-//     validateEmail({
-//       mode: "LIVE",
-//       block: ["DISPOSABLE", "INVALID", "NO_MX_RECORDS"],
-//     }),
-//     slidingWindow({
-//       mode: "LIVE",
-//       interval: "10m", // counts requests over a 10 minute sliding window
-//       max: 5,
-//     }),
-//   ],
-// });
+export const paymentRules = arcjet({
+  key: process.env.ARCJET_KEY,
+  rules: [
+    detectBot({
+      mode: "LIVE",
+      allow: [],
+    }),
+    shield({ mode: "LIVE" }),
+    validateEmail({
+      mode: "LIVE",
+      block: ["DISPOSABLE", "INVALID", "NO_MX_RECORDS"],
+    }),
+    slidingWindow({
+      mode: "LIVE",
+      interval: "10m", // counts requests over a 10 minute sliding window
+      max: 5,
+    }),
+  ],
+});
 
 export default aj;
